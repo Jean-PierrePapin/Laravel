@@ -41,3 +41,56 @@ Route::get('/post/{id}/{name}/{password}', 'PostsController@show_post');
 /* Route::resource('posts', 'PostsController'); */
 
 Route::get('/contact', 'PostsController@contact');
+
+
+/*
+|--------------------------------------------------------------------------
+| DB RAW SQL QUERIES
+|--------------------------------------------------------------------------
+|
+*/
+
+
+use Illuminate\Support\Facades\DB;
+/* 
+Route::get('/insert', function() {
+
+    DB::insert('insert into posts(title, content) values(?, ?)', ['PHP with laravel', 'Laravel best thing ever !!']);
+
+});
+ */
+/* 
+Route::get('/read', function() {
+
+    $results = DB::select('select * from posts where id = ?', [1]);
+
+    var_dump($results);
+    
+    echo '<br>';
+
+    foreach ( $results as $post ) {
+        return $post->title;
+    }
+
+});
+ */
+
+/* 
+Route::get('/update', function() {
+
+    $updated = DB::update('update posts set title = "Update title" where id = ?', [1]);
+
+    return $updated;
+
+});
+
+ */
+
+Route::get('/delete', function() {
+
+    $deleted = DB::delete('delete from posts where id = ?', [1]);
+
+    return $deleted;
+
+
+});
