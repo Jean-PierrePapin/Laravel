@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
+
+use App\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,13 +38,13 @@ Route::get('admin/posts/example', ['as' => 'admin.home', function() {
         return "this url is " . $url;
     } 
 ]); */
-
+/* 
 Route::get('/post/{id}/{name}/{password}', 'PostsController@show_post');
 
-/* Route::resource('posts', 'PostsController'); */
+Route::resource('posts', 'PostsController'); 
 
 Route::get('/contact', 'PostsController@contact');
-
+ */
 
 /*
 |--------------------------------------------------------------------------
@@ -51,7 +54,7 @@ Route::get('/contact', 'PostsController@contact');
 */
 
 
-use Illuminate\Support\Facades\DB;
+
 /* 
 Route::get('/insert', function() {
 
@@ -85,7 +88,7 @@ Route::get('/update', function() {
 });
 
  */
-
+/* 
 Route::get('/delete', function() {
 
     $deleted = DB::delete('delete from posts where id = ?', [1]);
@@ -94,3 +97,36 @@ Route::get('/delete', function() {
 
 
 });
+ */
+ 
+/*
+|--------------------------------------------------------------------------
+| ELOQUENT
+|--------------------------------------------------------------------------
+*/
+
+/* 
+Route::get('/read', function() {
+
+    $posts = Post::all();
+
+    foreach($posts as $post) {
+
+        return $post->title;
+
+    }
+
+});
+ */
+
+ Route::get('/find', function() {
+
+    $post = Post::find(2);
+
+    return $post->title;
+
+ });
+
+
+
+
