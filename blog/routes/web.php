@@ -55,13 +55,14 @@ Route::get('/contact', 'PostsController@contact');
 
 
 
-/* 
+
 Route::get('/insert', function() {
 
-    DB::insert('insert into posts(title, content) values(?, ?)', ['PHP with laravel', 'Laravel best thing ever !!']);
+    DB::insert('insert into posts(title, content) values(?, ?)', ['Django', 'Django best thing ever !!']);
 
 });
- */
+
+
 /* 
 Route::get('/read', function() {
 
@@ -118,7 +119,7 @@ Route::get('/read', function() {
 
 });
  */
-
+/* 
  Route::get('/find', function() {
 
     $post = Post::find(2);
@@ -126,7 +127,14 @@ Route::get('/read', function() {
     return $post->title;
 
  });
+ */
 
+Route::get('/findwhere', function() {
 
+    // Chaining
+    $posts = Post::where('id', 2)->orderBy('id', 'desc')->take(1)->get();
 
+    return $posts;
+
+});
 
