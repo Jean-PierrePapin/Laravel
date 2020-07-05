@@ -106,6 +106,10 @@ Route::get('/delete', function() {
 |--------------------------------------------------------------------------
 */
 
+/**
+ * READ DATA
+ */
+
 /* 
 Route::get('/read', function() {
 
@@ -119,6 +123,10 @@ Route::get('/read', function() {
 
 });
  */
+
+/**
+ * FIND DATA
+ */
 /* 
  Route::get('/find', function() {
 
@@ -129,6 +137,10 @@ Route::get('/read', function() {
  });
  */
 
+/**
+ * MORE WAYS TO RETRIEVE DATA
+ */
+/* 
 Route::get('/findwhere', function() {
 
     // Chaining
@@ -137,4 +149,73 @@ Route::get('/findwhere', function() {
     return $posts;
 
 });
+ */
+
+
+/* 
+Route::get('/findmore', function() {
+
+    $posts = Post::findOrFail(2);
+
+    return $posts;
+ 
+
+    $posts = Post::where('id', '<', 50)->firstOrFail();
+
+    return $posts;
+});
+ */
+
+/**
+ * INSERTING AND SAVING DATA
+ */
+
+/* Route::get('/basicinsert', function() {
+
+    $post = new Post;
+
+    $post->title = 'New eloquent title insert';
+    $post->content = 'Eloquent is really valuable';
+
+    $post->save();
+});
+ */
+
+/* 
+Route::get('/basicinsert2', function() {
+
+    $post = Post::find(2);
+
+    $post->title = 'New eloquent title insert 2';
+    $post->content = 'Eloquent is really valuable 2';
+
+    $post->save();
+});
+
+ */
+
+/**
+ * Creating data and configuring mass assignment
+ */
+/* 
+Route::get('/create', function() {
+
+    Post::create(['title' => 'The create method', 'content' => 'I\'m learning a lot in this course !']);
+
+});
+ */
+
+ /**
+ * UPDATING WITH ELOQUENT 
+ */
+
+Route::get('/update', function() {
+
+    Post::where('id', 2)->where('is_admin', 0)->update(['title' => 'NEW PHP TITLE', 'content' => 'I like Laravel']);
+
+});
+
+
+
+
 
