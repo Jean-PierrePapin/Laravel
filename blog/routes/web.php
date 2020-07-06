@@ -170,7 +170,8 @@ Route::get('/findmore', function() {
  * INSERTING AND SAVING DATA
  */
 
-/* Route::get('/basicinsert', function() {
+
+Route::get('/basicinsert', function() {
 
     $post = new Post;
 
@@ -179,7 +180,7 @@ Route::get('/findmore', function() {
 
     $post->save();
 });
- */
+
 
 /* 
 Route::get('/basicinsert2', function() {
@@ -197,25 +198,81 @@ Route::get('/basicinsert2', function() {
 /**
  * Creating data and configuring mass assignment
  */
+
 /* 
 Route::get('/create', function() {
 
     Post::create(['title' => 'The create method', 'content' => 'I\'m learning a lot in this course !']);
 
-});
- */
+}); 
+*/
+
 
  /**
  * UPDATING WITH ELOQUENT 
  */
-
+/* 
 Route::get('/update', function() {
 
     Post::where('id', 2)->where('is_admin', 0)->update(['title' => 'NEW PHP TITLE', 'content' => 'I like Laravel']);
 
 });
 
+ */
+
+/**
+ * DELETING DATA
+ */
+/* 
+ Route::get('/delete', function() {
+
+    $post = Post::find(2);
+
+    $post->delete();
+
+ });
+
+ */
+
+Route::get('/delete2', function() {
+
+    Post::destroy([4, 5]);
+
+    // Post::where('is_admin', 0)->delete();
 
 
+});
+
+
+/**
+ *  Soft Deleting / Trashing
+ */
+
+Route::get('/softdelete', function() {
+
+    Post::find(6)->delete();
+
+});
+
+/**
+ * Retrieving deleted / trashed records
+ */
+
+Route::get('/readsoftdelete', function() {
+
+    /* $post = Post::find(10);
+
+    return $post; */
+
+   /*  $post = Post::withTrashed()->where('id', 6)->get();
+
+    return $post; */
+    
+    $post = Post::onlyTrashed()->where('id', 6)->get();
+
+    return $post;
+
+
+});
 
 
