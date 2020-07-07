@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 
 use App\Post;
+use App\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -297,7 +298,17 @@ Route::get('/forcedelete', function() {
 
 });
 
+/*
+|--------------------------------------------------------------------------
+| ELOQUENT Relationship
+|--------------------------------------------------------------------------
+*/
 
+Route::get('/user/{id}/post', function($id) {
+
+    return User::find($id)->post;
+
+});
 
 
 
