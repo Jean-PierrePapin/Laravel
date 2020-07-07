@@ -275,4 +275,29 @@ Route::get('/readsoftdelete', function() {
 
 });
 
+/**
+ * Restoring deleted / trashed records
+ */
+
+/*  
+Route::get('/restore', function() {
+
+    Post::withTrashed()->where('is_admin', 0)->restore();
+
+});
+ */
+
+/**
+ * Deleting a record permanently
+ */
+
+Route::get('/forcedelete', function() {
+
+    Post::onlyTrashed()->where('is_admin', 0)->forceDelete();
+
+});
+
+
+
+
 
