@@ -330,7 +330,7 @@ Route::get('/post/{id}/user', function($id) {
 /**
  * One to many relationship
  */
-
+/* 
 Route::get('/posts', function() {
 
     $user = User::find(1);
@@ -342,7 +342,25 @@ Route::get('/posts', function() {
     }
 
 });
+ */
 
+/**
+ * Many to many relations
+ */
+
+Route::get('/user/{id}/role', function($id) {
+
+    // $user = User::find($id)->role->orderBy('id', 'desc')->get();
+    // return $user;
+    $user = User::find($id);
+
+    foreach($user->roles as $role) {
+
+        return $role->name;
+
+    }
+
+});
 
 
 
