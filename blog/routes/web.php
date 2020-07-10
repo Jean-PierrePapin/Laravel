@@ -362,5 +362,18 @@ Route::get('/user/{id}/role', function($id) {
 
 });
 
+/**
+ * Accessing the intermediate table / pivot
+ */
 
+Route::get('user/pivot', function() {
 
+    $user = User::find(1);
+
+    foreach($user->roles as $role) {
+
+        echo $role->pivot->created_at;
+
+    }
+
+});
