@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 
+use App\Country;
 use App\Post;
 use App\User;
 
@@ -365,7 +366,7 @@ Route::get('/user/{id}/role', function($id) {
 /**
  * Accessing the intermediate table / pivot
  */
-
+/* 
 Route::get('user/pivot', function() {
 
     $user = User::find(1);
@@ -377,3 +378,22 @@ Route::get('user/pivot', function() {
     }
 
 });
+ */
+
+/**
+ * Has many through relation
+ */
+
+Route::get('/user/country', function() {
+
+    $country = Country::find(2);
+
+    foreach($country->posts as $post) {
+
+        return $post->title;
+
+    }
+
+});
+
+
