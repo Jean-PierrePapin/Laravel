@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use App\Country;
 use App\Post;
 use App\User;
+use App\Photo;
 
 /*
 |--------------------------------------------------------------------------
@@ -383,7 +384,7 @@ Route::get('user/pivot', function() {
 /**
  * Has many through relation
  */
-
+/* 
 Route::get('/user/country', function() {
 
     $country = Country::find(2);
@@ -395,5 +396,23 @@ Route::get('/user/country', function() {
     }
 
 });
+ */
+
+/**
+ * Polymorphic relation
+ */
+
+Route::get('post/{id}/photos', function($id) {
+
+    $post = Post::find($id);
+
+    foreach($post->photos as $photo) {
+
+        echo $photo->path . '<br>';
+
+    }
+
+});
+
 
 
