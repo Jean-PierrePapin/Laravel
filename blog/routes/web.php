@@ -401,7 +401,7 @@ Route::get('/user/country', function() {
 /**
  * Polymorphic relation
  */
-
+/* 
 Route::get('post/{id}/photos', function($id) {
 
     $post = Post::find($id);
@@ -414,5 +414,24 @@ Route::get('post/{id}/photos', function($id) {
 
 });
 
+ */
+
+/**
+ * Polymorphic relation the inverse
+ */
+/* 
+Route::get('photo/{id}/post', function($id) {
+
+    $photo = Photo::findOrFail($id);
+
+    return $photo->imageable;
+
+});
+ */
+
+
+/**
+ * Polymorphic relation many to many
+ */
 
 
