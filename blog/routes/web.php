@@ -7,6 +7,7 @@ use App\Country;
 use App\Post;
 use App\User;
 use App\Photo;
+use App\Tag;
 
 /*
 |--------------------------------------------------------------------------
@@ -431,7 +432,34 @@ Route::get('photo/{id}/post', function($id) {
 
 
 /**
- * Polymorphic relation many to many
+ * Polymorphic relation many to many retrieving
+ */
+/* 
+Route::get('post/tag', function() {
+
+    $post = Post::find(1);
+
+    foreach($post->tags as $tag) {
+
+        echo $tag->name;
+
+    }
+
+});
  */
 
+/**
+ * Polymorphic relation many to many retrieving owner
+ */
 
+Route::get('tag/post', function() {
+
+    $tag = Tag::find(2);
+
+    foreach($tag->posts as $post) {
+
+        echo $post->title;
+
+    }
+
+});
