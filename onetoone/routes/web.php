@@ -13,6 +13,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+use App\User;
+use App\Address;
+
 Route::get('/', function () {
     return view('welcome');
+});
+
+/**
+ * create new addresses in the addresses table for the user in the users table
+ */
+
+Route::get('/insert', function () {
+
+    $user = User::findOrFail(1);
+
+    $address = new Address(['name'=>'4435 Sunset Blvd FL FL 99218']);
+
+    $user->address()->save($address);
+
 });
