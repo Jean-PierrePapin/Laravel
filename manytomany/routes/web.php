@@ -13,6 +13,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+use App\User;
+use App\Role;
+
 Route::get('/', function () {
     return view('welcome');
+});
+
+/**
+ * Inserting data
+ */
+
+Route::get('/create', function() {
+
+    $user = User::find(1);
+
+    $role = new Role(['name'=>'Administrator']);
+
+    $user->roles()->save($role);
+
 });
