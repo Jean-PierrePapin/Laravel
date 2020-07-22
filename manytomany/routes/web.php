@@ -97,3 +97,34 @@ Route::get('/delete', function() {
     }
 
 });
+
+/**
+ * Attaching, detaching and syncing
+ */
+
+// attaching
+Route::get('/attach', function() {
+
+    $user = User::findOrFail(1);
+
+    $user->roles()->attach(3);
+
+});
+
+// detaching
+Route::get('/detach', function() {
+
+    $user = User::findOrFail(1);
+
+    $user->roles()->detach(3);
+
+});
+
+// syncing
+Route::get('/sync', function() {
+
+    $user = User::findOrFail(1);
+
+    $user->roles()->sync([2]);
+
+});
