@@ -48,3 +48,54 @@ Route::get('/read', function() {
     }
 
 });
+
+/**
+ * Updating data
+ */
+
+Route::get('/update', function() {
+
+    $staff = Staff::findOrFail(1);
+
+    $photo = $staff->photos()->whereId(3)->first();
+
+    $photo->path = "Update example.jpg";
+
+    $photo->save();
+
+});
+
+/**
+ * Deleting data
+ */
+
+Route::get('/delete', function() {
+
+    $staff = Staff::findOrFail(1);
+
+    $staff->photos()->delete();
+
+});
+
+/**
+ * Assign data
+ */
+
+Route::get('/assign', function() {
+
+    $staff = Staff::findOrFail(1);
+
+    $photo = Photo::findOrFail(4);
+
+    $staff->photos()->save($photo);
+
+});
+
+Route::get('/un-assign', function() {
+
+    $staff = Staff::findOrFail(1);
+
+    $staff->photos()->whereId(4)->update(['imageable_id'=>'', 'imageable_type'=>'']);
+
+
+});
