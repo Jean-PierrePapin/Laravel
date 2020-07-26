@@ -59,13 +59,13 @@ Route::get('/contact', 'PostsController@contact');
 
 
 
-
+/* 
 Route::get('/insert', function() {
 
     DB::insert('insert into posts(title, content) values(?, ?)', ['Django', 'Django best thing ever !!']);
 
 });
-
+ */
 
 /* 
 Route::get('/read', function() {
@@ -174,7 +174,7 @@ Route::get('/findmore', function() {
  * INSERTING AND SAVING DATA
  */
 
-
+/* 
 Route::get('/basicinsert', function() {
 
     $post = new Post;
@@ -184,7 +184,7 @@ Route::get('/basicinsert', function() {
 
     $post->save();
 });
-
+ */
 
 /* 
 Route::get('/basicinsert2', function() {
@@ -237,7 +237,7 @@ Route::get('/update', function() {
  });
 
  */
-
+/* 
 Route::get('/delete2', function() {
 
     Post::destroy([4, 5]);
@@ -246,31 +246,31 @@ Route::get('/delete2', function() {
 
 
 });
-
+ */
 
 /**
  *  Soft Deleting / Trashing
  */
-
+/* 
 Route::get('/softdelete', function() {
 
     Post::find(6)->delete();
 
 });
-
+ */
 /**
  * Retrieving deleted / trashed records
  */
-
+/* 
 Route::get('/readsoftdelete', function() {
 
-    /* $post = Post::find(10);
+    // $post = Post::find(10);
 
-    return $post; */
+    // return $post; 
 
-   /*  $post = Post::withTrashed()->where('id', 6)->get();
+    // $post = Post::withTrashed()->where('id', 6)->get();
 
-    return $post; */
+    // return $post;
     
     $post = Post::onlyTrashed()->where('id', 6)->get();
 
@@ -278,7 +278,7 @@ Route::get('/readsoftdelete', function() {
 
 
 });
-
+ */
 /**
  * Restoring deleted / trashed records
  */
@@ -294,13 +294,13 @@ Route::get('/restore', function() {
 /**
  * Deleting a record permanently
  */
-
+/* 
 Route::get('/forcedelete', function() {
 
     Post::onlyTrashed()->where('is_admin', 0)->forceDelete();
 
 });
-
+ */
 /*
 |--------------------------------------------------------------------------
 | ELOQUENT Relationship
@@ -350,7 +350,7 @@ Route::get('/posts', function() {
 /**
  * Many to many relations
  */
-
+/* 
 Route::get('/user/{id}/role', function($id) {
 
     // $user = User::find($id)->role->orderBy('id', 'desc')->get();
@@ -364,7 +364,7 @@ Route::get('/user/{id}/role', function($id) {
     }
 
 });
-
+ */
 /**
  * Accessing the intermediate table / pivot
  */
@@ -451,7 +451,7 @@ Route::get('post/tag', function() {
 /**
  * Polymorphic relation many to many retrieving owner
  */
-
+/* 
 Route::get('tag/post', function() {
 
     $tag = Tag::find(2);
@@ -462,4 +462,13 @@ Route::get('tag/post', function() {
 
     }
 
-});
+}); */
+
+
+/*
+|--------------------------------------------------------------------------
+| CRUD application
+|--------------------------------------------------------------------------
+*/
+
+Route::resource('/posts', 'PostsController');
