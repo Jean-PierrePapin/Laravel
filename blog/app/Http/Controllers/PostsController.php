@@ -16,7 +16,10 @@ class PostsController extends Controller
     {
         //
 
-        return "it is working and the post number is " . $id;
+        $posts = Post::all();
+
+        return view('posts.index', compact('posts'));
+
     }
 
     /**
@@ -49,6 +52,8 @@ class PostsController extends Controller
          * second way to store data
          */
         Post::create($request->all());
+
+        return redirect('/posts');
 
         /**
          * 3rd way to store data
