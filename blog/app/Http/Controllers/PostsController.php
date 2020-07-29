@@ -12,7 +12,7 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
         //
 
@@ -83,7 +83,11 @@ class PostsController extends Controller
     {
         //
 
-        return "this is the show method " . $id;
+        //
+
+        $post = Post::findOrFail($id);
+
+        return view('posts.show', compact('post'));
     }
 
     /**

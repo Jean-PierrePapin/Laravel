@@ -471,4 +471,6 @@ Route::get('tag/post', function() {
 |--------------------------------------------------------------------------
 */
 
-Route::resource('/posts', 'PostsController@index');
+Route::get('posts/allposts/{id}', 'PostsController@show');
+
+Route::resource('posts', 'PostsController');
