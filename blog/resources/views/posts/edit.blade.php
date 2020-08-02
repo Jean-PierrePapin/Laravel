@@ -4,26 +4,26 @@
 
     <h1>Edit Post</h1>
 
-    <form method="post" action="/posts/{{ $post->id }}">
+    {!! Form::model($post, [ 'method' => 'PATCH', 'action' => ['PostsController@update', $post->id ] ]) !!}
 
         {{ csrf_field() }}
 
-        <input type="hidden" name="_method" value="PUT">
-        
-        <input type="text" name="title" placeholder="Enter title" value="{{ $post->title }}">
-        
-        <input type="submit" name="submit" value="UPDATE">
+        {!! Form::label( 'title', 'Title:' ) !!}
+        {!! Form::text( 'title', null, ['class'=>'form-control'] ) !!}
 
-    </form>
+ 
+        
+        
+        {!! Form::submit( 'Update Post', ['class'=>'btn btn-info'] ) !!}
 
-    <form method="post" action="/posts/{{ $post->id }}">
+    {!! Form::close() !!}
+
+    {!! Form::open(['method' => 'DELETE', 'action' => ['PostsController@destroy', $post->id] ]) !!}
         {{ csrf_field() }}
 
-        <input type="hidden" name="_method" value="DELETE">
+        {!! Form::submit( 'Delete Post', ['class'=>'btn btn-danger'] ) !!}
 
-        <input type="submit" value="DELETE">
-
-    </form>
+    {!! Form::close() !!}
     
 
 @endsection
