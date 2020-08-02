@@ -43,6 +43,15 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         //
+
+        $this->validate($request, [
+
+            'title'     => 'required',
+            'content'   => 'required'
+
+        ]);
+
+
         /**
          * First way to store data
          */
@@ -51,9 +60,9 @@ class PostsController extends Controller
         /**
          * second way to store data
          */
-        Post::create($request->all());
+        /* Post::create($request->all());
 
-        return redirect('/posts');
+        return redirect('/posts'); */
 
         /**
          * 3rd way to store data
