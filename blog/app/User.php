@@ -72,4 +72,11 @@ class User extends Authenticatable
 
     }
 
+    public function getNameAttribute($value) {
+
+        return ucfirst($value);
+
+    }
+
+
 }

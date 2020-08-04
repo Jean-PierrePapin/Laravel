@@ -498,6 +498,14 @@ Route::group(['middleware'=>'web'], function(){
 
     });
 
+    Route::get('/getname', function () {
+        
+        $user = User::find(1);
+
+        echo $user->name;
+
+    });
+
 
 
 });
