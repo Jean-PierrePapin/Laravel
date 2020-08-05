@@ -40,6 +40,10 @@ class Post extends Model
 
     }
 
+    public static function socpeLatest($query){
 
+        return $query->orderBy('id', 'asc')->get();
+
+    }
 
 }
