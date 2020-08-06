@@ -43,6 +43,17 @@ class PostsController extends Controller
      */
     public function store(CreatePostRequest $request)
     {
+
+        $file = $request->$file();
+
+        echo "<br>";
+
+        echo $file->getClientOriginalName();
+
+        echo "<br>";
+
+        echo $file->getClientSize();
+
         //
 
         /* $this->validate($request, [
