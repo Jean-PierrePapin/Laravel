@@ -9,6 +9,9 @@ class Post extends Model
 {
     // read https://laravel.com/docs/7.x/eloquent
 
+
+    public $directory = "/images/";
+
     use SoftDeletes;
     
     protected $dates = ['deleted_at'];
@@ -42,5 +45,14 @@ class Post extends Model
         return $query->orderBy('id', 'asc')->get();
 
     }
+
+    
+    public function getPathAttribute($value) {
+
+        return $this->directory . $value;
+
+    }
+
+
 
 }
