@@ -17,10 +17,7 @@ class Post extends Model
     // In case the table name is different from the command line
     // protected $table = 'posts';
 
-    protected $fillable = [
-        'title',
-        'content'
-    ];
+    protected $fillable = [ 'title', 'content', 'path' ];
 
     public function user() {
 
