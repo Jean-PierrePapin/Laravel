@@ -24,11 +24,25 @@ class HomeController extends Controller
     public function index(Request $request)
     {   
         
-        $request->session()->put(['Samuel' => 'instructor']);
+        //$request->session()->put(['Samuel' => 'instructor']);
 
-        //session(['peter' => 'student']);
+        // $request->session()->get('Samuel);
+
+
+        //session(['Samuel2' => 'Your freelancer']);
+
+        //return session('Samuel2');
+
+        //$request->session()->forget('Samuel2');
+
+
+        $request->session()->flush();
 
         return $request->session()->all();
+
+
+
+        //return $request->session()->all();
 
         //echo $request->session()->get('Samuel');
 
