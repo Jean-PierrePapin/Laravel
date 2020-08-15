@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+
+    $data = [
+        'title'     =>  'Hi myself I hope you to code ',
+        'content'   =>  'This laravel course is good for SaaS business MVP'
+    ];
+
+    Mail::send('emails.test', $data, function($message) {
+
+        $message->to('skouo82@gmail.com', 'Samuel')->subject('Hello myself, how are you?');
+
+
+    });
+
 });
