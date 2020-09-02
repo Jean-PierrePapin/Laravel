@@ -49,6 +49,13 @@ class PostController extends Controller
 
     }
 
+    public function edit(Post $post) {
+
+       
+        return view('admin.posts.edit', ['post'=>$post]);
+
+    }
+
     public function destroy(Post $post) {
 
         $post->delete();
@@ -56,6 +63,25 @@ class PostController extends Controller
         Session::flash('message', 'Post was deleted');
 
         return back();
+
+    }
+
+    public function update(Post $post) {
+
+        $inputs = request()->validate([
+            'title' => 'required|min:8|max:255',
+            'post_image' => 'file',
+            'body' => 'required'
+        ]);
+
+        $post = new Post();
+        $post->title = request('title');
+ 
+        if(request('post_image')) {
+             $inputs['post_image'] = request('post_image')->store('images');
+        }
+
+        auth()->user()->posts()->save($inputs);
 
     }
 }

@@ -43,7 +43,7 @@
                             <tr>
                                 <td>{{ $post->id }}</td>
                                 <td>{{ $post->user->name }}</td>
-                                <td>{{ $post->title }}</td>
+                                <td><a href="{{ route('post.edit', $post->id) }}">{{ $post->title }}</a></td>
                                 <td><img width="100px" src="{{ $post->post_image }}" alt=""></td>
                                 <td>{{ $post->created_at->diffForHumans() }}</td>
                                 <td>{{ $post->updated_at->diffForHumans()  }}</td>
