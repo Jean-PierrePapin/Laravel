@@ -41,9 +41,13 @@ class PostController extends Controller
             $inputs['post_image'] = request('post_image')->store('images');
         }
 
-        auth()->user()->posts()->create($inputs);
+        // Save the post as the username which is updating the post
+        // auth()->user()->posts()->create($inputs);
 
-        session()->flash('post-created-message', 'Post was created');
+        // Save the post without changing the owner
+        $post->save();
+
+        session()->flash('post-created-message', 'Post with title was created ' .$inputs['title']);
 
         return redirect()->route('post.index');
 
@@ -74,14 +78,21 @@ class PostController extends Controller
             'body' => 'required'
         ]);
 
-        $post = new Post();
-        $post->title = request('title');
+        
  
         if(request('post_image')) {
-             $inputs['post_image'] = request('post_image')->store('images');
+            $inputs['post_image'] = request('post_image')->store('images');
+            $post->post_image = $inputs['post_image'];
         }
 
-        auth()->user()->posts()->save($inputs);
+        $post->title = $inputs['title'];
+        $post->body = $inputs['body'];
+
+        auth()->user()->posts()->save($post);
+
+        session()->flash('post-updated-message', 'Post with title was updated ' .$inputs['title']);
+
+        return redirect()->route('post.index');
 
     }
 }
