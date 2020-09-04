@@ -12,7 +12,9 @@ class PostController extends Controller
 
     public function index() {
 
+        //$posts = auth()->user()->posts;
         $posts = Post::all();
+
         return view('admin.posts.index', ['posts'=>$posts]);
 
     }
@@ -88,7 +90,11 @@ class PostController extends Controller
         $post->title = $inputs['title'];
         $post->body = $inputs['body'];
 
-        auth()->user()->posts()->save($post);
+        /* auth()->user()->posts()->save($post); */
+
+        $this->authorize('update', $post);
+
+        $post->save();
 
         session()->flash('post-updated-message', 'Post with title was updated ' .$inputs['title']);
 
