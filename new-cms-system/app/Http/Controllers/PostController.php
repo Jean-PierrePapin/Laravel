@@ -56,8 +56,20 @@ class PostController extends Controller
     }
 
     public function edit(Post $post) {
+        /**
+         * To show only the author's post
+         */
+       // $this->authorize('view', $post);
+        
+        /**
+         * IF condition to show only the author's post
+         */
 
-       
+        /* if(auth()->user()->can('view', $post)){
+
+        } */
+
+
         return view('admin.posts.edit', ['post'=>$post]);
 
     }

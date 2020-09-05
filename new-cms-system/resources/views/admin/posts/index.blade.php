@@ -50,12 +50,14 @@
                                 <td>{{ $post->created_at->diffForHumans() }}</td>
                                 <td>{{ $post->updated_at->diffForHumans()  }}</td>
                                 <td>
-                                    <form method="post" action="{{ route('post.destroy', $post->id) }}" enctype="multipart/form-data">
-                                        @csrf
-                                        @method('DELETE')
 
-                                        <button class="btn btn-danger">Delete</button>
-                                    </form>
+                                        <form method="post" action="{{ route('post.destroy', $post->id) }}" enctype="multipart/form-data">
+                                            @csrf
+                                            @method('DELETE')
+
+                                            <button class="btn btn-danger">Delete</button>
+                                        </form>
+                                    
                                 </td>
                             </tr>
                         @endforeach
