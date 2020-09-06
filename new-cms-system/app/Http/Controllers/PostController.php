@@ -12,8 +12,8 @@ class PostController extends Controller
 
     public function index() {
 
-        //$posts = auth()->user()->posts;
-        $posts = Post::all();
+        $posts = auth()->user()->posts;
+        //$posts = Post::all();
 
         return view('admin.posts.index', ['posts'=>$posts]);
 
@@ -33,14 +33,16 @@ class PostController extends Controller
 
     public function store() {
 
-       $inputs = request()->validate([
-           'title' => 'required|min:8|max:255',
-           'post_image' => 'file',
-           'body' => 'required'
-       ]);
+        $this->authorize('create', Post::class);
 
-       if(request('post_image')) {
-            $inputs['post_image'] = request('post_image')->store('images');
+        $inputs = request()->validate([
+            'title' => 'required|min:8|max:255',
+            'post_image' => 'file',
+            'body' => 'required'
+        ]);
+
+        if(request('post_image')) {
+                $inputs['post_image'] = request('post_image')->store('images');
         }
 
         // Save the post as the username which is updating the post
@@ -59,7 +61,7 @@ class PostController extends Controller
         /**
          * To show only the author's post
          */
-       // $this->authorize('view', $post);
+        $this->authorize('view', $post);
         
         /**
          * IF condition to show only the author's post
@@ -75,6 +77,8 @@ class PostController extends Controller
     }
 
     public function destroy(Post $post) {
+
+        $this->authorize('delete', $post);
 
         $post->delete();
 
