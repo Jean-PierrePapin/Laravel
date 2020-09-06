@@ -12,7 +12,7 @@ class PostController extends Controller
 
     public function index() {
 
-        $posts = auth()->user()->posts;
+        $posts = auth()->user()->posts()->paginate(5);
         //$posts = Post::all();
 
         return view('admin.posts.index', ['posts'=>$posts]);
@@ -46,10 +46,10 @@ class PostController extends Controller
         }
 
         // Save the post as the username which is updating the post
-        // auth()->user()->posts()->create($inputs);
+         auth()->user()->posts()->create($inputs);
 
         // Save the post without changing the owner
-        $post->save();
+        //$post->save();
 
         session()->flash('post-created-message', 'Post with title was created ' .$inputs['title']);
 
