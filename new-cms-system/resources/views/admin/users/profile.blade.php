@@ -8,15 +8,16 @@
 
             <div class="col-sm-6">
 
-                <form method="post" action="" enctype="multipart/form-data">
+                <form method="post" action="{{ route('user.profile.update', $user) }}" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
 
                     <div class="mb-4">
                         <img class="img-profile rounded-circle" height="60" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                     </div>
 
                     <div class="form-group">
-                        <input type="file">
+                        <input type="file" name="avatar">
                     </div>
 
                     <div class="form-group">
@@ -45,7 +46,6 @@
                                name="password" 
                                class="form-control" 
                                id="password"
-                               
                                >
                     </div>
 
