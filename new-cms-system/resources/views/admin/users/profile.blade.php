@@ -28,6 +28,24 @@
                                id="username"
                                value="{{ $user->username }}" 
                                >
+
+                               @error('username')
+                                    <div class="alert alert-danger">{{$message}}</div>
+                               @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" 
+                               name="name" 
+                               class="form-control" 
+                               id="name"
+                               value="{{ $user->name }}" 
+                               >
+
+                               @error('name')
+                                    <div class="alert alert-danger">{{$message}}</div>
+                               @enderror
                     </div>
 
                     <div class="form-group">
@@ -38,6 +56,9 @@
                                id="email"
                                value="{{ $user->email }}" 
                                >
+                               @error('email')
+                                    <div class="alert alert-danger">{{$message}}</div>
+                               @enderror
                     </div>
                     
                     <div class="form-group">
@@ -47,6 +68,9 @@
                                class="form-control" 
                                id="password"
                                >
+                               @error('password')
+                                    <div class="alert alert-danger">{{$message}}</div>
+                               @enderror
                     </div>
 
                     <div class="form-group">
@@ -57,9 +81,12 @@
                                id="password-confirmation"
                                
                                >
+                               @error('password_confirmation')
+                                    <div class="alert alert-danger">{{$message}}</div>
+                               @enderror
                     </div>
 
-                    <button type="submit" class="ben btn-primart">Submit</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
 
                 </form>
 
