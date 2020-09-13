@@ -24,13 +24,12 @@
                         <label for="username">Username</label>
                         <input type="text" 
                                name="username" 
-                               class="form-control" 
+                               class="form-control @error('username') is-invalid @enderror" 
                                id="username"
                                value="{{ $user->username }}" 
                                >
-
                                @error('username')
-                                    <div class="alert alert-danger">{{$message}}</div>
+                                    <div class="invalid-feedback">{{$message}}</div>
                                @enderror
                     </div>
 
@@ -38,13 +37,12 @@
                         <label for="name">Name</label>
                         <input type="text" 
                                name="name" 
-                               class="form-control" 
+                               class="form-control @error('name') is-invalid @enderror" 
                                id="name"
                                value="{{ $user->name }}" 
                                >
-
                                @error('name')
-                                    <div class="alert alert-danger">{{$message}}</div>
+                                    <div class="invalid-feedback">{{$message}}</div>
                                @enderror
                     </div>
 
@@ -52,12 +50,12 @@
                         <label for="email">Email</label>
                         <input type="text" 
                                name="email" 
-                               class="form-control" 
+                               class="form-control @error('email') is-invalid @enderror" 
                                id="email"
                                value="{{ $user->email }}" 
                                >
                                @error('email')
-                                    <div class="alert alert-danger">{{$message}}</div>
+                                    <div class="invalid-feedback">{{$message}}</div>
                                @enderror
                     </div>
                     
@@ -65,11 +63,11 @@
                         <label for="password">Password</label>
                         <input type="password" 
                                name="password" 
-                               class="form-control" 
+                               class="form-control @error('password') is-invalid @enderror" 
                                id="password"
                                >
                                @error('password')
-                                    <div class="alert alert-danger">{{$message}}</div>
+                                    <div class="invalid-feedback">{{$message}}</div>
                                @enderror
                     </div>
 
@@ -77,12 +75,11 @@
                         <label for="password-confirmation">Confirm Password</label>
                         <input type="password" 
                                name="password_confirmation" 
-                               class="form-control" 
+                               class="form-control @error('password_confirmation') is-invalid @enderror" 
                                id="password-confirmation"
-                               
                                >
                                @error('password_confirmation')
-                                    <div class="alert alert-danger">{{$message}}</div>
+                                    <div class="invalid-feedback">{{$message}}</div>
                                @enderror
                     </div>
 
