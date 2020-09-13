@@ -13,7 +13,7 @@
                     @method('PUT')
 
                     <div class="mb-4">
-                        <img class="img-profile rounded-circle" height="60" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                        <img class="img-profile rounded-circle" height="60" src="{{ $user->avatar }}">
                     </div>
 
                     <div class="form-group">
