@@ -13,7 +13,7 @@
             <div class="card-body">
                 <div class="table-responsive">
 
-                    <table class="table table-bordered" id="users-table" width="100%" cellspacing="0">
+                    <table class="table table-bordered" id="usersTable" width="100%" cellspacing="0">
                         
                         <thead>
                             <tr>
@@ -44,6 +44,13 @@
 
                                 <tr>
                                     <td>{{ $user->id }}</td>
+                                    <td>{{ $user->username }}</td>
+                                    <td>
+                                        <img height="50px" src="{{ $user->avatar }}" alt="">
+                                    </td>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->created_at->diffForhumans() }}</td>
+                                    <td>{{ $user->updated_at->diffForhumans() }}</td>
                                 </tr>
 
                             @endforeach
