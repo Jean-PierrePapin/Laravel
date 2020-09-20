@@ -142,8 +142,32 @@
                                             <td>{{ $role->id }}</td>
                                             <td>{{ $role->name }}</td>
                                             <td>{{ $role->slug }}</td>
-                                            <td><button class="btn btn-primary">Attach</button></td>
-                                            <td><button class="btn btn-danger">Detach</button></td>
+                                            <td>
+                                                <form method="post" action="{{ route('user.role.attach', $user) }}">
+                                                    @method('PUT')
+                                                    @csrf
+                                                    <input type="hidden" name="role" value="{{ $role->id }}">
+                                                    <button type="submit" 
+                                                            class="btn btn-primary"
+                                                            @if($user->roles->contains($role))
+                                                                disabled
+                                                            @endif
+                                                            >Attach</button>
+                                                </form>
+                                            </td>
+                                            <td>
+                                                <form method="post" action="{{ route('user.role.detach', $user) }}">
+                                                    @method('PUT')
+                                                    @csrf
+                                                    <input type="hidden" name="role" value="{{ $role->id }}">
+                                                    <button type="submit" 
+                                                            class="btn btn-danger"
+                                                            @if(!$user->roles->contains($role))
+                                                                disabled
+                                                            @endif
+                                                            >Detach</button>
+                                                </form>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -155,8 +179,6 @@
         
                 </div>
         
-                
-
             </div>
 
         </div>
