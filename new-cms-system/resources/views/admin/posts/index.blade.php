@@ -18,50 +18,50 @@
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Owner</th>
-                            <th>Title</th>
-                            <th>Image</th>
-                            <th>Created at</th>
-                            <th>Updated At</th>
-                            <th>Delete</th>
-                        </tr>
-                    </thead>
-                    <tfoot>
-                        <tr>
-                            <th>Id</th>
-                            <th>Owner</th>
-                            <th>Title</th>
-                            <th>Image</th>
-                            <th>Created at</th>
-                            <th>Updated At</th>
-                            <th>Delete</th>
-                        </tr>
-                    </tfoot>
-                    <tbody>
-                        @foreach($posts as $post)
+                        <thead>
                             <tr>
-                                <td>{{ $post->id }}</td>
-                                <td>{{ $post->user->name }}</td>
-                                <td><a href="{{ route('post.edit', $post->id) }}">{{ $post->title }}</a></td>
-                                <td><img width="100px" src="{{ $post->post_image }}" alt=""></td>
-                                <td>{{ $post->created_at->diffForHumans() }}</td>
-                                <td>{{ $post->updated_at->diffForHumans()  }}</td>
-                                <td>
-
-                                        <form method="post" action="{{ route('post.destroy', $post->id) }}" enctype="multipart/form-data">
-                                            @csrf
-                                            @method('DELETE')
-
-                                            <button class="btn btn-danger">Delete</button>
-                                        </form>
-                                    
-                                </td>
+                                <th>Id</th>
+                                <th>Owner</th>
+                                <th>Title</th>
+                                <th>Image</th>
+                                <th>Created at</th>
+                                <th>Updated At</th>
+                                <th>Delete</th>
                             </tr>
-                        @endforeach
-                    </tbody>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Id</th>
+                                <th>Owner</th>
+                                <th>Title</th>
+                                <th>Image</th>
+                                <th>Created at</th>
+                                <th>Updated At</th>
+                                <th>Delete</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            @foreach($posts as $post)
+                                <tr>
+                                    <td>{{ $post->id }}</td>
+                                    <td>{{ $post->user->name }}</td>
+                                    <td><a href="{{ route('post.edit', $post->id) }}">{{ $post->title }}</a></td>
+                                    <td><img width="100px" src="{{ $post->post_image }}" alt=""></td>
+                                    <td>{{ $post->created_at->diffForHumans() }}</td>
+                                    <td>{{ $post->updated_at->diffForHumans()  }}</td>
+                                    <td>
+
+                                            <form method="post" action="{{ route('post.destroy', $post->id) }}" enctype="multipart/form-data">
+                                                @csrf
+                                                @method('DELETE')
+
+                                                <button class="btn btn-danger">Delete</button>
+                                            </form>
+                                        
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
                     </table>
                 </div>
             </div>
