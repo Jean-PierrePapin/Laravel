@@ -20,6 +20,12 @@ class RoleController extends Controller
 
     }
 
+    public function edit(Role $role) {
+
+        return view('admin.roles.edit', ['role' => $role]);
+
+    }
+
     public function store() {
 
         request()->validate([
