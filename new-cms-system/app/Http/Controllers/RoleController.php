@@ -41,6 +41,24 @@ class RoleController extends Controller
 
     }
 
+    public function update(Role $role) {
+
+        $role->name = Str::ucfirst(request('name'));
+        $role->slug = Str::of(request('name'))->slug('-');
+
+        if($role->isDirty('name')) {
+
+            session()->flash('role-updated', 'Role Updated: ' . request('name'));
+
+            $role->save();
+
+        } else {
+            session()->flash('role-updated', 'Nothing has been updated');
+        }
+
+        return back();
+    }
+
     public function destroy(Role $role) {
 
         $role->delete();
