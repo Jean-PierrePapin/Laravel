@@ -7,8 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Livewire</title>
     
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @livewireStyles
-
+    
 </head>
 <body>
     @livewire('comments')
