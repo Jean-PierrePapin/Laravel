@@ -4,4 +4,4 @@
 
 @tailwind utilities;
 
-@import '/app.css';
+@import 'app';
