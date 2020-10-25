@@ -10,7 +10,7 @@ class Comments extends Component
 {
     public $comments = [
         [
-            'body' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam convallis eget purus ut aliquam. Curabitur feugiat eros nec augue vulputate, eget tempus lorem rhoncus. Proin lobortis at dolor ut semper. Maecenas bibendum tincidunt elit et pellentesque. In fermentum pulvinar scelerisque. Fusce euismod elit felis, euismod feugiat nunc elementum vitae. Donec egestas ullamcorper purus, non consectetur magna dapibus a. Aenean et nisl sit amet enim pellentesque tincidunt vel in dolor. Nullam pretium orci pulvinar mi tempus, non consectetur odio placerat. Etiam cursus tortor velit, sed facilisis neque sollicitudin sit amet. Ut in rutrum velit.',
+            'body' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam convallis eget purus ut aliquam.',
             'created_at' => '3 min ago',
             'creator' => 'Starhak'
         ]
@@ -18,6 +18,14 @@ class Comments extends Component
 
     public $newComment;
 
+
+    public function mount($comments)
+    {
+        // $this->newComment = 'I am from mounted function';
+        $this->newComment = $comments;
+
+    }
+    
     public function addComment() 
     {
         if( $this->newComment == '' ) {
@@ -31,8 +39,8 @@ class Comments extends Component
         ]);
         
         $this->newComment = "";
-    }
-
+    } 
+   
     public function render()
     {
         return view('livewire.comments');

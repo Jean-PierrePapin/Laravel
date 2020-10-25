@@ -16,7 +16,9 @@
 
         </form>
 
-        @foreach($comments as $comment)
+        {{ dd($comments) }}
+
+        {{-- @foreach($comments as $comment)
         
             <div class="rounded border shadow p-3 my-2">
 
@@ -32,7 +34,7 @@
 
             </div>
         
-        @endforeach
+        @endforeach --}}
 
     </div>
     

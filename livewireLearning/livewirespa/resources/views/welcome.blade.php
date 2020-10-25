@@ -8,12 +8,14 @@
     <title>Livewire</title>
     
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    @livewireStyles
+    <livewire:styles />
     
 </head>
 <body>
-    @livewire('comments')
 
-    @livewireScripts
+    <livewire:comments comments="comments" />
+
+    <livewire:scripts />
+    
 </body>
 </html>
