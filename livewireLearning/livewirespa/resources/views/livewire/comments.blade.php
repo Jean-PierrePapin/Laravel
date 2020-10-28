@@ -4,7 +4,7 @@
         
         <h1 class="my-10 text-3xl">Comments</h1>
 
-        <form class="my-4 flex" wire:submit.prevent="addComment">
+        <form class="my-4 flex" wire:submit="addComment">
             
             <input type="text" class="w-full rounded border shadow p-2 mr-2 my-2" placeholder="What's in your mind." wire:model.lazy="newComment">
 
@@ -16,9 +16,9 @@
 
         </form>
 
-        {{ dd($comments) }}
+        {{-- {{ gettype($comments) }} --}}
 
-        {{-- @foreach($comments as $comment)
+       {{--  @foreach($comments as $comment)
         
             <div class="rounded border shadow p-3 my-2">
 
@@ -35,6 +35,24 @@
             </div>
         
         @endforeach --}}
+
+
+        <div class="rounded border shadow p-3 my-2">	       
+
+            <div class="rounded border shadow p-3 my-2">
+
+                <div class="flex justify-start my-2">	                
+
+                    <p class="font-bold text-lg">Starhak</p>	                   
+                    <p class="mx-3 py-1 text-xs text-gray-500 font-semibold">3 Min ago</p>	                    
+
+                </div>	                
+
+                <p class="text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam convallis eget purus ut aliquam. </p>	               
+
+            </div>	            
+
+        </div>	
 
     </div>
     
