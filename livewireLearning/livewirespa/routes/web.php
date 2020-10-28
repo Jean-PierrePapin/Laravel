@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Comment;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,5 +16,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $comments = Comment::all();
+    return view('welcome', compact('comments'));
 });

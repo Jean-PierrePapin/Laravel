@@ -13,7 +13,7 @@
 </head>
 <body>
 
-    <livewire:comments comments="comments" />
+    <livewire:comments comments="$comments" />
 
     <livewire:scripts />
     
