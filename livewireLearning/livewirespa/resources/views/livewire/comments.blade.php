@@ -4,7 +4,7 @@
         
         <h1 class="my-10 text-3xl">Comments</h1>
 
-        <form class="my-4 flex" wire:submit="addComment">
+        <form class="my-4 flex" wire:submit.prevent="addComment">
             
             <input type="text" class="w-full rounded border shadow p-2 mr-2 my-2" placeholder="What's in your mind." wire:model.lazy="newComment">
 
@@ -48,7 +48,7 @@
 
                 </div>	                
 
-                <p class="text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam convallis eget purus ut aliquam. </p>	               
+                <p class="text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam convallis eget purus ut aliquam.</p>	               
 
             </div>	            
 

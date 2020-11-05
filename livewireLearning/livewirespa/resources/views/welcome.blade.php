@@ -13,8 +13,8 @@
 </head>
 <body>
 
-    <livewire:comments comments="$comments" />
-
+    <livewire:comments :InitialComments="$comments" />
+    {{-- comments="" --}}
     <livewire:scripts />
     
 </body>

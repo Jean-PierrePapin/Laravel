@@ -1,8 +1,10 @@
 <?php
 
+use \App\Comment;
 use Illuminate\Support\Facades\Route;
 
-use App\Comment;
+//use App\Http\Livewire\Comments;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +21,9 @@ Route::get('/', function () {
     $comments = Comment::all();
     return view('welcome', compact('comments'));
 });
+
+/* Route::get('/', function () {
+    
+    return view('welcome');
+});
+ */

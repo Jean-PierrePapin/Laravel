@@ -2,27 +2,35 @@
 
 namespace App\Http\Livewire;
 
-
+use App\Comment;
 use Carbon\Carbon;
 use Livewire\Component;
 
 class Comments extends Component
-{
-    public $comments = [
+{   
+
+    /* public function comments()
+    {
+        $comments = Comment::all();
+
+        return view('posts.index')->with(compact('comments'));
+    } */
+
+    public $comments; /* = [
         [
             'body' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam convallis eget purus ut aliquam.',
             'created_at' => '3 min ago',
             'creator' => 'Starhak'
         ]
-    ];
+    ]; */
 
     public $newComment;
 
 
-    public function mount($comments)
+    public function mount($InitialComments)
     {
-        // $this->newComment = 'I am from mounted function';
-        $this->newComment = $comments;
+        //$this->newComment = 'I am from mounted function';
+        $this->comments = $InitialComments;
 
     }
     
